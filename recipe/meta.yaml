@@ -18,6 +18,7 @@ requirements:
   host:
     - python
     - pip
+    - wheel
   run:
     - python
     - intake
@@ -39,6 +40,7 @@ about:
   summary: Intake parquet plugin
   license: BSD-2-Clause
   license_file: LICENSE
+  license_family: BSD
   dev_url: https://github.com/ContinuumIO/intake-parquet
   doc_url: https://github.com/ContinuumIO/intake-parquet
   description: Intake parquet plugin
