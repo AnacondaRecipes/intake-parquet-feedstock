@@ -22,7 +22,7 @@ requirements:
     - python
     - pip
     - wheel
-    - versioneer
+    - versioneer ==0.29
   run:
     - python
     - intake
