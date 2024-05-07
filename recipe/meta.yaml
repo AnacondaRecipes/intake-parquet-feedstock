@@ -22,7 +22,8 @@ requirements:
     - python
     - pip
     - wheel
-    - versioneer ==0.29
+    # necessary for setup.py resolution on py3.12 (likely due to missing versioneer.py)
+    - versioneer ==0.29 # [py>311]
   run:
     - python
     - intake
@@ -31,12 +32,20 @@ requirements:
     - pyarrow
 
 test:
+  source_files:
+    - tests
   imports:
     - intake_parquet
   commands:
     - pip check
+    # due to older pyarrow we need to avoid py3.12
+    # test_discovery is broken and out of date
+    - py.test --verbose -k "not test_discovery" tests # [py<311]
   requires:
     - pip
+    - pytest
+    # older pyarrow needed for out of date tests
+    - pyarrow <=13.0.0
 
 about:
   home: https://github.com/ContinuumIO/intake-parquet
