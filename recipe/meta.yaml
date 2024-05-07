@@ -22,6 +22,7 @@ requirements:
     - python
     - pip
     - wheel
+    - setuptools
     # necessary for setup.py resolution on py3.12 (likely due to missing versioneer.py)
     - versioneer ==0.29 # [py>311]
   run:
